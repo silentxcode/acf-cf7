@@ -7,11 +7,10 @@
  * Based on work by @adam_pope of @stormuk
  *
  * Tags: acf, acf add-on, forms, contact form 7, custom field, form field
- * Tested up to: 3.4.2
+ * Tested version: 3.4.2
  * Stable tag: 0.0
  * 
- * Docs: 
- * Docs: https://github.com/stormuk/Gravity-Forms-ACF-Field
+ * Docs: https://github.com/taylormsj/acf-cf7
  */
  
 class acf_cf7_field extends acf_Field{
