@@ -9,7 +9,7 @@ Installation
 =======
 
 1. Copy 'acf-cf7.php' to your theme:
-  https://github.com/taylormsj/acf-cf7
+  <a href="https://github.com/taylormsj/acf-cf7.git">https://github.com/taylormsj/acf-cf7.git</a>
 
 2. Register the field:
 
