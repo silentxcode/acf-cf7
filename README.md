@@ -13,7 +13,7 @@ Installation
 
 2. Register the field:
 
-<pre><code>  if(function_exists('register_field')){
+<pre><code>  if(function_ exists('register_field')){
     register_field('acf_cf7_field', dirname(__File__) . '/optional-directory/acf-cf7.php');
   }
 </pre></code>
