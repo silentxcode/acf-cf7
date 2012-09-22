@@ -5,6 +5,21 @@ ACF-CF7 is an add-on for the ACF (<a href="http://www.advancedcustomfields.com">
 
 ACF-CF7 displays a simple drop down/multiple select form field in a custom meta box.
 
+Screenshots
+=======
+<img src="http://desmond.imageshack.us/Himg838/scaled.php?server=838&filename=acfcf71.jpg&res=landing">
+
+Setting up ACF-CF7
+
+<img src="http://desmond.imageshack.us/Himg210/scaled.php?server=210&filename=acfcf72.jpg&res=landing">
+
+ACF-CF7 multiple select with forms disabled
+
+<img src="http://desmond.imageshack.us/Himg580/scaled.php?server=580&filename=acfcf73.jpg&res=landing">
+
+Using ACF-CF7 with the flexible content field
+
+
 Installation
 =======
 
