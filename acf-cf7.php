@@ -3,7 +3,7 @@
 /*
  * Advanced Custom Fields - Contact Form 7 Multi-Select Field add-on
  * 
- * Written by @taylor_mitchell_st_joseph of @accentdesign 
+ * Written by @taylormsj of @accentdesign 
  * Based on work by @adam_pope of @stormuk
  *
  * Tags: acf, acf add-on, forms, contact form 7, custom field, form field
