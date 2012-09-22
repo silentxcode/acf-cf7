@@ -202,7 +202,7 @@ class acf_cf7_field extends acf_Field{
           if($key == $field['value']){
             $selected = 'selected="selected"';
           }
-          if(in_array($k, $field['disable'])){
+          if(in_array(($k+1), $field['disable'])){
             $selected = 'disabled="disabled"';
           }
         }
