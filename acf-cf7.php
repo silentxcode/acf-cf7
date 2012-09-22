@@ -57,6 +57,7 @@ class acf_cf7_field extends acf_Field{
     // defaults
     $field['multiple'] = isset($field['multiple']) ? $field['multiple'] : '0';
     $field['allow_null'] = isset($field['allow_null']) ? $field['allow_null'] : '0';
+    $field['disable'] = isset($field['disable']) ? $field['disable'] : '0';
     
     ?>
     <tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -80,7 +81,7 @@ class acf_cf7_field extends acf_Field{
     </tr>
     <tr class="field_option field_option_<?php echo $this->name; ?>">
       <td class="label">
-        <label><?php _e("Select multiple values?",'acf'); ?></label>
+        <label><?php _e("Select multiple forms?",'acf'); ?></label>
       </td>
       <td>
 <?php 
@@ -97,6 +98,34 @@ class acf_cf7_field extends acf_Field{
 ?>
       </td>
     </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+          <td class="label">
+            <label><?php _e("Disable forms?",'acf'); ?></label>
+            <p class="description"><?php _e("User can not select these forms",'acf'); ?></p>
+          </td>
+          <td>
+    <?php 
+            //Get form names
+            $forms = get_posts(array('post_type' => 'wpcf7_contact_form', 'orderby' => 'id', 'order' => 'ASC'));  
+            $choices = array();
+            $choices[0] = '---';
+            $k = 1;
+            foreach($forms as $f){
+              $choices[$k] = $f->post_title;
+              $k++;
+            } 
+            $this->parent->create_field(array(
+              'type'  =>  'select',
+              'name'  =>  'fields['.$key.'][disable]',
+              'value' =>  $field['disable'],
+              'multiple'    =>  '1',
+              'allow_null'  =>  '0',
+              'choices' =>  $choices,
+              'layout'  =>  'horizontal',
+            ));
+    ?>
+          </td>
+        </tr>
 <?php
   }
   
@@ -132,6 +161,7 @@ class acf_cf7_field extends acf_Field{
   function create_field($field){
 
     $field['multiple'] = isset($field['multiple']) ? $field['multiple'] : false;
+    $field['disable'] = isset($field['disable']) ? $field['disable'] : false;
         
     // Add multiple select functionality as required
     $multiple = '';
@@ -150,7 +180,7 @@ class acf_cf7_field extends acf_Field{
     
 
     // Display all contact form 7 forms
-    $forms = get_posts(array('post_type' => 'wpcf7_contact_form'));       
+    $forms = get_posts(array('post_type' => 'wpcf7_contact_form', 'orderby' => 'id', 'order' => 'ASC'));       
     if($forms){  
       foreach($forms as $k => $form){
         $key = $form->ID;
@@ -163,10 +193,17 @@ class acf_cf7_field extends acf_Field{
           if(in_array($key, $field['value'])){
             $selected = 'selected="selected"';
           }
+          //Disable form selection as required
+          if(in_array(($k+1), $field['disable'])){
+            $selected = 'disabled="disabled"';
+          }
         }else{
           // If not a multiple select, just check normaly
           if($key == $field['value']){
             $selected = 'selected="selected"';
+          }
+          if(in_array($k, $field['disable'])){
+            $selected = 'disabled="disabled"';
           }
         }
         echo '<option value="'.$key.'" '.$selected.'>'.$value.'</option>';
